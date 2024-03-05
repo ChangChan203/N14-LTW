@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item{
+            mix-blend-mode: multiply;
+        }
+        .parent {
+            margin: 1rem;
+            padding: 2rem 2rem;
+            text-align: center;
+        }
+        .child {
+            display: inline-block;
+            padding: 1rem 1rem;
+            vertical-align: middle;
+        }
+        #myInput {
+            width: 10%;
+            font-size: 13px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+
+        #myTable {
+            border-collapse: collapse;
+            width: 30%;
+            border: 1px solid #ddd;
+            font-size: 15px;
+            height: 20%;
+        }
+        #myTable th, #myTable td {
+            text-align: left;
+            padding: 12px;
+        }
+        #myTable tr {
+            border-bottom: 1px solid #ddd;
+        }
+
+        #myTable tr.header, #myTable tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script>
+        let sl=prompt("Tổng số lượng sinh viên tham gia");
+        let tl=prompt("Tỉ lệ hoàn thành");
+        let d0=prompt("Hãy nhập số lượng điểm 0:");
+        let d1=prompt("Hãy nhập số lượng điểm 1:");
+        let d2=prompt("Hãy nhập số lượng điểm 2:");
+        let d3=prompt("Hãy nhập số lượng điểm 3:");
+        let d4=prompt("Hãy nhập số lượng điểm 4:");
+        let d5=prompt("Hãy nhập số lượng điểm 5:");
+        let d6=prompt("Hãy nhập số lượng điểm 6:");
+        let d7=prompt("Hãy nhập số lượng điểm 7:");
+        let d8=prompt("Hãy nhập số lượng điểm 8:");
+        let d9=prompt("Hãy nhập số lượng diểm 9:");
+        let d10=prompt("Hãy nhập số lượng điểm 10:");
+        let sum=d1*1+d2*2+d3*3+d4*4+d5*5+d6*6+d7*7+d10*10/sl;
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0-beta.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.1.135/jspdf.min.js"></script>
+    <script type="text/javascript" src="http://cdn.uriit.ru/jsPDF/libs/adler32cs.js/adler32cs.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js
+    "></script>
+    <script type="text/javascript" src="libs/Blob.js/BlobBuilder.js"></script>
+    <script type="text/javascript" src="http://cdn.immex1.com/js/jspdf/plugins/jspdf.plugin.addimage.js"></script>
+    <script type="text/javascript" src="http://cdn.immex1.com/js/jspdf/plugins/jspdf.plugin.standard_fonts_metrics.js"></script>
+    <script type="text/javascript" src="http://cdn.immex1.com/js/jspdf/plugins/jspdf.plugin.split_text_to_size.js"></script>
+    <script type="text/javascript" src="http://cdn.immex1.com/js/jspdf/plugins/jspdf.plugin.from_html.js"></script>
+    <script type="text/javascript" src="js/basic.js"></script>
+    <script>
+        $(function () {
+
+        var specialElementHandlers = {
+            '#editor': function (element,renderer) {
+                return true;
+            }
+        };
+        $('#pdf').click(function () {
+            var doc = new jsPDF();
+            doc.fromHTML(
+                $('#target').html(), 15, 15, 
+                { 'width': 170, 'elementHandlers': specialElementHandlers }, 
+                function(){ doc.save('bao_cao.pdf'); }
+            );
+
+        });  
+        });
+    </script>
+</head>
+<body id="target">
+    
+    <div style="background-color:rgba(177,30,59,255);color: antiquewhite; width: 100%; height:80px; margin:-10px;">
+        <div style="position: relative;left: 25px; top: 25px; font-size: 20px; width: 10%; float: left;">
+            Trang chủ
+        </div>
+        <div style="position: relative;left: 26px; top: 25px; font-size: 20px; width: 10%; float: left;">
+            Bài tập
+        </div>
+        <div style="position: relative;left: 27px; top: 25px; font-size: 20px; width: 10%; float: left;">
+            Kiểm tra
+        </div>
+        <div style="position: relative; top: 30px ;font-size: 15px; width: 10%; float: right">
+            Nguyễn Văn A
+            <img class="item" src="data:image/jpeg;base64,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" alt="" width="10%" style="position: absolute; top: 1.5px; left: -20px;" >
+        </div>
+        <div style="position: relative; top: -25px ;left: 730px; width: 10%; ">
+            <img src="https://avatars.githubusercontent.com/u/57191540?s=200&v=4" alt="" width="50%">
+        </div>
+    </div>
+    <span style="position: relative; top: 50px; left: 50px;">
+        <form action="">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Tìm kiếm" >
+        </form>
+    </span>
+    <span style="position: relative; top: 50px ;left: -500px; height: 300px; width: 90%;">
+        <table id="myTable" width="30%" align="center">
+            <tr class="header">
+                <th>STT</th>
+                <th>Môn học</th>
+                <th>Kì thi</th>
+                <th>Thời gian</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Lập trình Web</td>
+                <td>Giữa kì</td>
+                <td>23/1/2024</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Lập trình Web</td>
+                <td>Cuối kì</td>
+                <td>23/7/2024</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Cơ sở dữ liệu</td>
+                <td>Cuối kì</td>
+                <td>15/7/2024</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Toán rời rạc</td>
+                <td>Giữa kì</td>
+                <td>21/3/2024</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Lập trình C++</td>
+                <td>Cuối kì</td>
+                <td>10/7/2024</td>
+            </tr>
+        </table>
+    </span>
+    <div class='parent' style="position: relative; width: 30%;">
+        <div class="child" style="position: absolute; left: 30px; top:  105px; font-size: 25px;">
+            Tổng số lượng sinh viên tham gia:
+        </div>
+        <div id="bdsl" class="child" style="position: absolute; left: 380px; top: 110px; color: green;
+        font-size: 20px;">
+        </div>
+    </div>
+    <div class='parent' style="position: relative; width: 30%;">
+        <div class="child" style="position: absolute; left: 30px; top: 105px; font-size: 25px;">
+            Tỉ lệ hoàn thành:
+        </div>
+        <div id="tlht" class="child" style="position: absolute; left: 210px; top: 110px; color: green;
+        font-size: 20px;">
+        </div>
+    </div>
+    <div class='parent' style="position: relative; width: 30%;">
+        <div class="child" style="position: absolute; left: 30px; top: 105px; font-size: 25px;">
+            Điểm trung bình:
+        </div>
+        <div id="dtb" class="child" style="position: absolute; left: 210px; top: 110px; color: green;
+        font-size: 20px;">
+        </div>
+        <div id="dtb" class="child" style="position: absolute; left: 30px; top: 150px; 
+        font-size: 20px;">
+            <button id="pdf">Xuất báo cáo</button>
+        </div>
+    </div>
+    
+
+    <canvas id="myChart" style="width:100%;max-width:700px ;position: relative; bottom: 300px; right: -800px;"></canvas>
+
+    <script>
+        var xValues = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9","10"];
+        // var yValues = [d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, d10];
+        var yValues = [d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10];
+        var barColors = ["grey", "grey", "grey", "grey", "grey", "grey", "grey", "grey", "grey", "grey", "grey"];
+        
+        new Chart("myChart", {
+          type: "bar",
+          data: {
+            labels: xValues,
+            datasets: [{
+              backgroundColor: barColors,
+              data: yValues
+            }]
+          },
+          options: {
+            legend: {display: false},
+            title: {
+              display: true,
+              text: "Thống kê sinh viên"
+            }
+          }
+        });
+        document.getElementById("bdsl").innerHTML=sl;
+        document.getElementById("tlht").innerHTML=tl+"%";
+        document.getElementById("dtb").innerHTML=Math.round(sum * 100) / 100;
+
+
+
+        function myFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td1 = tr[i].getElementsByTagName("td")[1];
+                if (td1) {
+                    txtValue = td1.textContent || td1.innerText || td2.textContent || td2.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                    tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+        </script>
+</body>
+</html>

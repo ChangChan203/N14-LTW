@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <title>Result Page for Admin</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/ResultPage-admin.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    </head>
+
+    <body>
+
+        <div class="frame">
+            <img id="PTIT-logo" src="../anh/PTIT-logo.png">
+        </div>
+
+        <main>
+
+            <header class="menuTab">
+                <Quay id="returnButton">< Quay lại</button>
+            </header>
+
+            <hr>
+
+            <div class="mainPage">
+                <h1>Kết quả thi của Sinh viên</h1>
+                <input id="searchText" type="text" placeholder="Nhập tên hoặc mã sinh viên">
+                <button id="searchButton" onclick="searchStudent()">Tìm kiếm</button>
+
+                <div id="studentResults">
+                    <!--Kết quả hiển thị ở đây-->
+                </div>
+
+                <div class="addition">
+                    <button id = "exportButton" onclick="exportResults()">Xuất Báo Cáo</button>
+                </div>
+                
+            </div>
+
+        </main>
+        
+        <script src="../js/ResultPage-admin.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,160 @@
+:root {
+    --dark-red: #bb2019;
+    --white: #fff;
+    --gray: #eee;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto;  
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+section {
+    margin: 90px 3%;
+}
+
+header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--dark-red);
+    padding: 20px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+header .navbar a {
+    padding-left: 55px;
+    color: var(--white);
+}
+
+button {
+    cursor: pointer;
+}
+
+.fa-solid {
+    font-size: 85%;
+    cursor: pointer;
+}
+
+.fa-solid:hover {
+    color: var(--dark-red);
+}
+
+.main-page {  
+    padding: 3%;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 2px;
+}
+
+.main-page .search-container {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.main-page .search-container h3 {
+    align-self: flex-end;
+}
+
+.main-page .search-container .searchBox-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border: 1.5px solid rgba(0, 0, 0, .1);
+    border-radius: 3px;
+}
+
+.main-page .search-container .searchBox-container i {
+    cursor: pointer;
+}
+
+.main-page table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.main-page table th, table td {
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    padding: 12px;
+}
+
+.main-page table tbody tr:nth-child(odd) {
+    background-color: var(--gray);
+}
+
+.main-page table th:first-child, td:first-child {
+    text-align: center;
+}
+
+.column-number { width: 5%; }
+.column-id { width: 10%; }
+.column-name { width: 20%; }
+.column-type { width: 20%; }
+.column-creationDate { width: 15%; }
+.column-duration { width: 15%; }
+.column-endDate { width: 15%; }
+
+.main-page table tbody .cell-id, .cell-name {
+    cursor: pointer;
+}
+
+.main-page table tbody .cell-id:hover, .cell-name:hover {
+    color: var(--dark-red);
+    text-decoration: underline;
+}
+
+.main-page table th .filter-icon {
+    position: relative;
+    display: inline-block;
+}
+
+.main-page table th .filter-icon .filter-menu {
+    display: none;
+    position: absolute;
+    background-color: var(--white);
+    min-width: 140px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.main-page table th .filter-icon .filter-menu.active {
+    display: block;
+}
+
+.main-page table th .filter-icon .filter-menu .checkbox-option {
+    padding: 10px;
+    font-weight: normal;
+    display: flex;
+    align-items: center;   
+}
+
+.main-page table th .filter-icon .filter-menu .checkbox-option label {
+    padding-left: 5px;
+}
+
+.main-page table th .filter-icon .filter-menu .checkbox-option:hover {
+    color: var(--dark-red);
+}
+
+.main-page table th .filter-icon .filter-menu button {
+    padding: 8px 0;
+    background-color: var(--dark-red);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    min-width: 140px;
+}

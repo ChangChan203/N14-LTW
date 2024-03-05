@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css//admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- header section begins -->
+    <header>
+        <nav class="navbar">
+            <a href="#">Bài tập</a>
+            <a href="#">Trạng thái</a>
+            <a href="ThongKe.html">Thống kê</a>
+            <a href="ResultPage-admin.html">Kết quả</a>
+        </nav>
+    </header>
+    <!-- header section ends -->
+
+    <!-- main section begins -->
+    <section class="main-page">
+        <div class="search-container">
+            <div>
+              <button id = "button_ds_kythi" class="button_ds_kythi_ngdung">Danh sách kỳ thi</button>
+              <button id = "button_ds_ngdung" class="button_ds_kythi_ngdung">Danh sách người dùng</button>
+            </div>
+
+            <div class="searchBox-container">
+                <input type="text" name="search-box" id="search-box" placeholder="Tìm theo tên, loại">
+                <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
+            </div>
+        </div>
+
+        <div id="Admin_ds_bai_thi">
+            <table id="examsTable">
+                <thead>
+                    <tr>
+                        <th class="column-number">STT</th>
+                        <th class="column-id">Mã</th>
+                        <th class="column-name">Tên kỳ thi
+                            <div class="filter-icon">
+                                <i class="fa-solid fa-filter" id="filter-name" onclick="toggleFilterMenu(this)"></i>
+                                <div id="filter-name-menu" class="filter-menu">
+                                    <div class="checkbox-option">
+                                        <input type="checkbox" id="option1" name="Luyện tập">
+                                        <label for="option1">Luyện tập</label>
+                                    </div>
+                                    <div class="checkbox-option">
+                                        <input type="checkbox" id="option2" name="Giữa kỳ">
+                                        <label for="option2">Giữa kỳ</label>
+                                    </div>
+                                    <div class="checkbox-option">
+                                        <input type="checkbox" id="option3" name="Cuối kỳ">
+                                        <label for="option1">Cuối kỳ</label>
+                                    </div>
+                                    <button class="filter-btn" id="filter-name" onclick="filter(this)">Lọc</button>
+                                </div>
+                            </div>
+                        </th>
+                        <th class="column-type">Loại
+                            <div class="filter-icon">
+                                <i class="fa-solid fa-filter" id="filter-type" onclick="toggleFilterMenu(this)"></i>
+                                <div id="filter-type-menu" class="filter-menu">
+                                    <div class="checkbox-option">
+                                        <input type="checkbox" id="option1" name="Truy cập tự do">
+                                        <label for="option1">Truy cập tự do</label>
+                                    </div>
+                                    <div class="checkbox-option">
+                                        <input type="checkbox" id="option2" name="Yêu cầu thời gian">
+                                        <label for="option2">Yêu cầu thời gian</label>
+                                    </div>
+                                    <button class="filter-btn" id="filter-type" onclick="filter(this)">Lọc</button>
+                                </div>
+                            </div>
+                        </th>
+                        <th class="column-creationDate">Ngày tạo</th>
+                        <th class="column-duration">Thời gian</th>
+                        <th class="column-endDate">Ngày kết thúc</th>
+                        <th class="column-edit">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dữ liệu bảng sẽ được thêm vào đây bằng JavaScript -->
+                </tbody>
+            </table>
+            <div id="div_button_them_bai_thi_dashboah">
+                <button id="button_them_bai_thi_dashboah" class="button_sua_xoa">Thêm bài thi</button>
+            </div>
+        </div>
+
+        <div id="Admin_ds_ng_dung">
+            <table id="usersTable">
+                <thead>
+                    <tr>
+                        <th class="column-number">STT</th>
+                        <th class="column-tk">Tên đăng nhập</th>
+                        <th class="column-email">Email</th>
+                        <th class="column-mk">Mật khẩu</th>
+                        <th class="column-edit">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dữ liệu bảng sẽ được thêm vào đây bằng JavaScript -->
+                </tbody>
+            </table>
+            <div id="div_button_them_user_dashboah">
+                <button id="button_them_user_dashboah" class="button_sua_xoa" onclick="them_User_Admin(this)">Thêm người dùng</button>
+            </div>
+        </div>
+    </section>
+    <!-- main section ends -->
+
+    <script src="../js/admin.js"></script>
+</body>
+
+</html>
