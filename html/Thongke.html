@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cssh.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+<body>
+    <div class="total" style="position: relative;">
+        <div class="header">
+            <h3>Thống kê</h3>
+            <img class="imghead" src="C:\Users\admin\Desktop\Thongke\con pt.png" alt="">
+        </div>
+
+        <form action="" id="mck">
+            <div class="search">
+                <select name="" id="" class="opt1">
+                    <option value="" selected hidden>Chọn kì thi</option>
+                    <option value="">Giữa kì</option>
+                    <option value="">Cuối kì</option>
+                </select>
+                <input class="thanh" id="myInput" type="text" placeholder="Nhập môn học" onkeyup="myFunction()">
+                <br>
+                Chọn thời gian:
+                <input class="time" type="date">
+                <button class="find">Tìm kiếm</button>
+            </div>
+        </form>
+
+        <div class="list">
+            <table id="myTable">
+                <tr class="head">
+                    <th>STT</th>
+                    <th>Môn học</th>
+                    <th>Kì thi</th>
+                    <th>Thời gian</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Lập trình Web</td>
+                    <td>Giữa kì</td>
+                    <td>23/1/2024</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Lập trình Web</td>
+                    <td>Cuối kì</td>
+                    <td>23/7/2024</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Cơ sở dữ liệu</td>
+                    <td>Cuối kì</td>
+                    <td>15/7/2024</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Toán rời rạc</td>
+                    <td>Giữa kì</td>
+                    <td>21/3/2024</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Lập trình C++</td>
+                    <td>Cuối kì</td>
+                    <td>10/7/2024</td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div class="group" id="group">
+            <div class="cards">
+                <div class="card">
+                    <div class="content">
+                        Tổng số lượng sinh viên tham gia
+                    </div>
+                    <div class="footer" id="gtsl">
+                        1000 sinh viên
+                    </div>
+                </div>
+        
+                <div class="card">
+                    <div class="content">
+                        Tỉ lệ hoàn thành
+                    </div>
+                    <div class="footer" id="gttl">
+                        54%
+                    </div>
+                </div>
+        
+                <div class="card">
+                    <div class="content">
+                        Điểm trung bình
+                    </div>
+                    <div class="footer" id="gtdtb">
+                        6.5
+                    </div>
+                </div>
+            </div>
+    
+            <div class="chart">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+
+        <div class="changes">
+            <h4>Thay đổi thông tin</h4>
+            <form action="" id="tlinh">
+                <span class="title">Tổng số sinh viên tham gia</span>
+                <input type="text" class="hitbox" id="udsl" placeholder="Nhập số lượng">
+                <span class="title">Tỉ lệ hoàn thành</span>
+                <input type="text" class="hitbox" id="udtl" placeholder="Nhập tỉ lệ">
+                <select name="" id="lcdiem" class="opt2">
+                    <option value="-1" selected hidden>Chọn điểm số</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <input type="text" id="gtdiem" class="hitbox" placeholder="Nhập số lượng điểm">
+                <button type="button" class="change" onclick="upd()">Thay đổi</button>
+                <button type="button" id="pdf" class="change" >Xuất báo cáo</button>
+            </form>
+        </div>
+        <div id="editor"></div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script>
+            document.getElementById('pdf').addEventListener('click', function () {
+            var element = document.getElementById('group');
+
+            html2canvas(element).then(function(canvas) {
+                var imgData = canvas.toDataURL('image/png');
+                var doc = new jsPDF();
+                var imgHeight = canvas.height * 208 / canvas.width;
+                doc.addImage(imgData, 'PNG', 0, 0, 208, imgHeight);
+                doc.save('document.pdf');
+            });
+        });
+    </script>
+    <script src="jas.js"></script>
+</body>
+</html>
