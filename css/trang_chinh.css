@@ -20,27 +20,62 @@ html {
 }
 
 section {
-    margin: 90px 3%;
+    margin: 100px 3%;
 }
 
 header {
     position: fixed;
     top: 0; left: 0; right: 0;
     background: var(--dark-red);
-    padding: 20px 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 1000;
+    padding: 10px 6%;
+    z-index: 1000; 
+    color: var(--white); 
 }
 
-header .navbar a {
-    padding-left: 55px;
+header nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+header .navbar h2 {
     color: var(--white);
+    align-self: center;
+}
+
+header .navbar h2 a {
+    color: var(--white);
+    font-size: 24px; 
+}
+
+header .navbar .nav-profile {
+    display: flex;
+    flex-direction: column;
+}
+
+header .navbar .nav-profile span {
+    padding: 5px 0;
+}
+
+header .navbar .nav-profile .logout-btn {
+    padding: 5px 0;
+    border-radius: 5px;
+}
+
+header .navbar .nav-profile .logout-btn a {
+    color: black;
+}
+
+header .navbar .nav-profile .logout-btn a:hover {
+    color: var(--dark-red);
 }
 
 button {
     cursor: pointer;
+}
+
+button:hover {
+    color: var(--white);
+    background-color: black;
 }
 
 .fa-solid {
@@ -100,21 +135,14 @@ button {
 }
 
 .column-number { width: 5%; }
-.column-id { width: 10%; }
-.column-name { width: 20%; }
-.column-type { width: 20%; }
-.column-creationDate { width: 15%; }
-.column-duration { width: 15%; }
-.column-endDate { width: 15%; }
-
-.main-page table tbody .cell-id, .cell-name {
-    cursor: pointer;
-}
-
-.main-page table tbody .cell-id:hover, .cell-name:hover {
-    color: var(--dark-red);
-    text-decoration: underline;
-}
+.column-id { width: 5%; }
+.column-name { width: 15%; }
+.column-subject { width: 20%; }
+.column-type {width: 15%}
+.column-creationDate { width: 10%; }
+.column-duration { width: 10%; }
+.column-endDate { width: 10%; }
+.column-status { width: 10%; }
 
 .main-page table th .filter-icon {
     position: relative;
@@ -156,5 +184,14 @@ button {
     color: white;
     border: none;
     border-radius: 5px;
-    min-width: 140px;
+    min-width: 150px;
+}
+
+.main-page table td .start-btn {
+    padding: 5px 0;
+    background-color: var(--dark-red);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    min-width: 80px;
 }
