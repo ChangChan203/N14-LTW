@@ -1,8 +1,10 @@
 class Exam {
-    constructor(id, name, type, creationDate, duration, endDate) {
+    constructor(id, name, subject, type, status, creationDate, duration, endDate) {
         this.id = id;
         this.name = name;
+        this.subject = subject;
         this.type = type;
+        this.status = status;
         this.creationDate = new Date(creationDate);
         this.duration = duration;
         this.endDate = new Date(endDate);
@@ -10,22 +12,32 @@ class Exam {
 }
 
 const examsList = [
-    new Exam("0001", "Luyện tập", "Truy cập tự do", "2024-07-22", 60, "2024-07-29"),
-    new Exam("0002", "Giữa kỳ", "Yêu cầu thời gian", "2024-07-22", 90, "2024-07-29"),
-    new Exam("0003", "Cuối kỳ", "Yêu cầu thời gian", "2024-07-22", 80, "2024-07-29"),
-    new Exam("0004", "Luyện tập", "Truy cập tự do", "2024-07-22", 30, "2024-07-29")
+    new Exam("LT001", "Luyện tập", "Mạng máy tính", "Truy cập tự do", "Bắt đầu", "", 60, ""),
+    new Exam("GK001", "Giữa kỳ", "Lập trình với Python", "Yêu cầu thời gian", "Bắt đầu", "2024-07-22", 90, "2024-07-29"),
+    new Exam("CK001", "Cuối kỳ", "Mạng máy tính", "Truy cập tự do", "Bắt đầu", "", 80, ""),
+    new Exam("LT002", "Luyện tập", "Cơ sở dữ liệu", "Truy cập tự do", "Bắt đầu", "", 30, ""),
+    new Exam("LT003", "Luyện tập", "Lý thuyết thông tin", "Truy cập tự do", "Bắt đầu", "", 30, ""),
+    new Exam("CK002", "Cuối kỳ", "Cơ sở dữ liệu", "Yêu cầu thời gian", "Đã hết hạn", "2024-07-22", 120, "2024-07-29"),
+    new Exam("LT004", "Luyện tập", "Lập trình hướng đối tượng", "Truy cập tự do", "Bắt đầu", "", 20, ""),
+    new Exam("GK002", "Giữa kỳ", "Lập trình hướng đối tượng", "Yêu cầu thời gian", "Đã hết hạn", "2024-07-22", 60, "2024-07-29"),
+    new Exam("GK003", "Giữa kỳ", "Hệ điều hành", "Yêu cầu thời gian", "Bắt đầu", "2024-07-22", 90, "2024-07-29"),
+    new Exam("GK004", "Giữa kỳ", "	Mạng máy tính", "Yêu cầu thời gian", "Bắt đầu", "2024-07-22", 60, "2024-07-29")
 ]
 
 function formatDate(date) {
-    let day = date.getDate();
-    let month = date.getMonth() + 1; // getMonth() trả về giá trị từ 0 (tháng 1) đến 11 (tháng 12)
-    let year = date.getFullYear();
+    if (isNaN(date.getTime())) {
+        return '-- / -- / ----';
+    } else {
+        let day = date.getDate();
+        let month = date.getMonth() + 1; // getMonth() trả về giá trị từ 0 (tháng 1) đến 11 (tháng 12)
+        let year = date.getFullYear();
 
-    // Thêm số 0 vào trước nếu ngày hoặc tháng nhỏ hơn 10
-    day = day < 10 ? '0' + day : day;
-    month = month < 10 ? '0' + month : month;
+        // Thêm số 0 vào trước nếu ngày hoặc tháng nhỏ hơn 10
+        day = day < 10 ? '0' + day : day;
+        month = month < 10 ? '0' + month : month;
 
-    return day + '/' + month + '/' + year;
+        return day + '/' + month + '/' + year;
+    }
 }
 
 function clearTable() {
@@ -50,28 +62,44 @@ function displayExams(list) {
         var id = row.insertCell(1);
         id.className = "cell-id";
         id.textContent = exam.id;
-        id.onclick = function () {
-            window.location.href = "../html/bai_thi.html";
-        };
+        // id.onclick = function () {
+        //     window.location.href = "#link-exam";
+        // };
 
         var name = row.insertCell(2);
         name.className = "cell-name";
         name.textContent = exam.name;
-        name.onclick = function () {
-            window.location.href = "../html/bai_thi.html";
-        };
+        // name.onclick = function () {
+        //     window.location.href = "#link-exam";
+        // };
 
-        var type = row.insertCell(3);
+        var subject = row.insertCell(3);
+        subject.textContent = exam.subject;
+
+        var type = row.insertCell(4);
         type.textContent = exam.type;
 
-        var creationDate = row.insertCell(4);
+        var creationDate = row.insertCell(5);
         creationDate.textContent = formatDate(exam.creationDate);
 
-        var duration = row.insertCell(5);
+        var duration = row.insertCell(6);
         duration.textContent = exam.duration + " phút";
 
-        var endDate = row.insertCell(6);
+        var endDate = row.insertCell(7);
         endDate.textContent = formatDate(exam.endDate);
+
+        var status = row.insertCell(8);
+        if (exam.status === "Bắt đầu") {
+            var btn = document.createElement("button");
+            btn.textContent = exam.status;
+            btn.className = "start-btn";
+            btn.onclick = function () {
+                window.location.href = "../html/bai_thi.html";
+            }
+            status.appendChild(btn);
+        } else {
+            status.textContent = exam.status;
+        }
     });
 }
 
@@ -115,7 +143,7 @@ function toggleFilterMenu(element) {
 // document.addEventListener("click", function(event) {
 //     const menu = document.getElementById("filter-menu active");
 //     const targetElement = event.target;
-  
+
 //     // Kiểm tra nếu click bên ngoài menu và menu đang hiển thị
 //     if (!menu.contains(targetElement) && menu.classList.contains("active")) {
 //       menu.classList.remove("active"); // Ẩn menu
@@ -163,4 +191,6 @@ function filter(element) {
     displayExams(result);
 }
 
-
+function logout() {
+    window.location.href = "../html/login.html";
+}
