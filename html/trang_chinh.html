@@ -13,10 +13,11 @@
     <!-- header section begins -->
     <header>
         <nav class="navbar">
-            <a href="#">Bài tập</a>
-            <a href="#">Trạng thái</a>
-            <a href="#">Lịch sử</a>
-            <a href="#">Kết quả</a>
+            <h2><a href="#">HỆ THỐNG THI TRẮC NGHIỆM</a></h2>
+            <div class="nav-profile">
+                <span> <i class="fa-solid fa-user"></i> Nguyễn Văn A</span>
+                <button class="logout-btn" onclick="logout()">Đăng xuất</a></button>
+            </div>
         </nav>
     </header>
     <!-- header section ends -->
@@ -56,6 +57,7 @@
                             </div>
                         </div>
                     </th>
+                    <th class="column-subject">Môn học</th>
                     <th class="column-type">Loại
                         <div class="filter-icon">
                             <i class="fa-solid fa-filter" id="filter-type" onclick="toggleFilterMenu(this)"></i>
@@ -72,9 +74,10 @@
                             </div>
                         </div>
                     </th>
-                    <th class="column-creationDate">Ngày tạo</th>
+                    <th class ="column-creationDate">Ngày tạo</th>
                     <th class="column-duration">Thời gian</th>
                     <th class="column-endDate">Ngày kết thúc</th>
+                    <th class="column-status">Trạng thái</th>
                 </tr>
             </thead>
             <tbody>
