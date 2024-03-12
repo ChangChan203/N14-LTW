@@ -8,12 +8,12 @@ body{
 }
 
 *{
-    font-family: Montserrat;
+    font-family: Roboto;
 }
 
 .total .header{
     display: flex;
-    background-color: rgba(177,30,59,255);
+    background-color: #bb2019;
 }
 
 .total .header h3{
@@ -62,7 +62,7 @@ body{
 .total #mck .search {
     margin-top: 50px;
     width: 20%;
-    border: 2px solid rgba(177,30,59,255);
+    border: 2px solid #bb2019;
     border-radius: 5px;
     padding: 10px 0px 10px 20px;
     margin-left: 100px;
@@ -75,7 +75,7 @@ body{
     border-radius: 5px;
     color: bisque;
     border: 1px solid black;
-    background-color: rgba(177,30,59,255);
+    background-color: #bb2019;
 }
 .total .list {
     position: absolute;
@@ -99,12 +99,12 @@ body{
 }
 
 #myTable tr.head, #myTable tr:hover {
-    background-color: rgba(177,30,59,255);
+    background-color: #bb2019;
 }
 
 .total .group{
     width: 50%;
-    border: 2px solid rgba(177,30,59,255);
+    border: 2px solid #bb2019;
     border-radius: 5px;
     margin: 200px 0 50px 100px;
 }
@@ -112,14 +112,14 @@ body{
 .total .group .cards {
     width: 90%;
     display: flex;
-    border: 2px solid rgba(177,30,59,255);
+    border: 2px solid #bb2019;
     border-radius: 5px;
     margin: 40px 0 20px 35px;
 }
 
 .total .group .cards .card{
     width: 15%;
-    border: 2px solid  rgba(177,30,59,255);
+    border: 2px solid  #bb2019;
     margin: 50px 0 50px 90px;
     height: 200px;
     border-radius: 10px;
@@ -127,7 +127,7 @@ body{
 }
 
 .total .group .cards .card .content{
-    background-color: rgba(177,30,59,255);
+    background-color: #bb2019;
     color: beige;
     padding: 20px 5px 0px 5px;
     text-align: center;
@@ -148,7 +148,7 @@ body{
 .total .group .chart{
     width: 85%;
     margin: 40px 0 40px 33px;
-    border: 2px solid  rgba(177,30,59,255);
+    border: 2px solid  #bb2019;
     border-radius: 10px;
     padding: 20px 20px 20px 20px ;
 }
@@ -158,7 +158,7 @@ body{
     right: 180px;
     top: 600px;
     width: 20%;
-    border: 2px solid rgba(177,30,59,255);
+    border: 2px solid #bb2019;
     border-radius: 5px;
     padding: 10px 0px 10px 20px;
 }
@@ -184,7 +184,7 @@ body{
     border-radius: 5px;
     color: bisque;
     border: 1px solid black;
-    background-color: rgba(177,30,59,255);
+    background-color: #bb2019;
 }
 
 .total .changes #tlinh .opt2{
